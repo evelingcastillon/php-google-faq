@@ -35,6 +35,7 @@ $google = [
 ];
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,25 +43,102 @@ $google = [
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        .logo {
+            display: flex;
+        }
+        h2 {
+            font-weight: 500;
+        }
+        img{
+            height: 37px;
+            padding-right: 0.5rem;
+        }
+        .menu {
+            display: flex;
+            border-bottom: 1px solid black;
+        }
+        li {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            font-size: 12px;
+        }
+        .special {
+            color: RoyalBlue;
+            border-bottom: 3px solid RoyalBlue;
+        }
+        
+        .container{
+            width: 950px;
+            margin: auto;
+            padding: 5rem 0;
+        }
+        h3 {
+            padding-bottom: 1rem;
+        }
+        
+        p{
+            font-size: 12px;
+            padding-bottom: 1rem;
+        }
+    </style>
 </head>
 <body>
-    <?php foreach ($google as $key => $value) {
-        # code...
-        //var_dump($value['domanda']);
-        //var_dump($value['risposta'])?>
-    <h3><?php echo $value['domanda'];?></h3>
+    
+    <header id="site_header">
+        <div class="logo">
+            <img src="https://1000marche.net/wp-content/uploads/2020/03/Google-logo.png" alt="">
+            <h2>Privacy & Termini</h2>
+        </div>
+        
+    <nav class="navbar">
+        <ul class="menu">
+            <li><a href="#">Introduzione</a></li>
+            <li><a href="#">Norme sulla privacy</a></li>
+            <li><a href="#">Termini di servizio</a></li>
+            <li><a href="#">Tecnologie</a></li>
+            <li><a class="special" href="#">Domande frequenti</a></li>
+        </ul>
+    </nav>
+    </header>
 
-    <?php for ($i=0; $i < count($value['risposta']); $i++) { 
-        # code...
-        $paragrafo = $value['risposta'][$i];
-        //var_dump($paragrafo);
-        ?>
+    <main id="site_main">
 
-        <p><?php echo $paragrafo; ?></p>
-    <?php    
-    } ?>
+        <div class="container">
+        <?php foreach ($google as $key => $value) {
+            # code...
+            //var_dump($value['domanda']);
+            //var_dump($value['risposta'])?>
 
-    <?php
-    } ?>
+        <h3><?php echo $value['domanda'];?></h3>
+
+        <?php for ($i=0; $i < count($value['risposta']); $i++) { 
+                # code...
+            $paragrafo = $value['risposta'][$i];
+            //var_dump($paragrafo);
+            ?>
+
+            <p><?php echo $paragrafo; ?></p>
+        <?php    
+        } ?>
+
+        <?php
+        } ?>
+        </div>
+    </main>
 </body>
 </html>
