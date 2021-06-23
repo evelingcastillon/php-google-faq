@@ -44,6 +44,23 @@ $google = [
     <title>Document</title>
 </head>
 <body>
-    
+    <?php foreach ($google as $key => $value) {
+        # code...
+        //var_dump($value['domanda']);
+        //var_dump($value['risposta'])?>
+    <h3><?php echo $value['domanda'];?></h3>
+
+    <?php for ($i=0; $i < count($value['risposta']); $i++) { 
+        # code...
+        $paragrafo = $value['risposta'][$i];
+        //var_dump($paragrafo);
+        ?>
+
+        <p><?php echo $paragrafo; ?></p>
+    <?php    
+    } ?>
+
+    <?php
+    } ?>
 </body>
 </html>
